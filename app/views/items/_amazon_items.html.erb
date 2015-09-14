@@ -1,18 +1,22 @@
 <div class="container">
   <div class="container-inner inner-default clearfix">
-    <% amazon_items.each do |item| %>
+    <% @amazon_items.each do |item| %>
       <div class="item-box">
         <div class="image">
           <div class="img-wrap">
-            <% #TODO 商品画像 %>
-            <%= image_tag("no-image.png" , alt: item.get('ItemAttributes/Title')) %>
+            <% unless item.get('LargeImage/URL') == nil %>
+              <%= image_tag(item.get('LargeImage/URL') , alt: item.get('ItemAttributes/Title')) %>
+            <% else %>
+              <%= image_tag("no-image.png" , alt: item.get('ItemAttributes/Title')) %>
+            <% end %>
           </div>
         </div>
         <div class="detail">
-          <p class="title">
-            <% #TODO 商品タイトル %>
-            仮タイトル
-          </p>
+          <% unless item.get('ItemAttributes/Title') == nil %>
+            <p class="title">
+              <%= item.get('ItemAttributes/Title') %>
+            </p>
+          <% end %>
         </div>
         <div class="action clearfix">
           <%= link_to "" , ownerships_path(asin: item.get('ASIN') , type: "Want") ,
