@@ -1,3 +1,11 @@
+<% content_for :head do %>
+  <title><%= @user.name %> - Monolist</title>
+<% end %>
+<% content_for :meta_tags do %>
+  <meta name="description" content="<%= @user.name %>のモノページ。Hanakoの欲しいモノ、持ってるモノを表示しています。">
+  <meta name="keywords" content="<%= @user.name %>, amazonアイテム, 持っている人, 欲しい人">
+<% end %>
+
 <%= render 'profile' , user: @user %>
 
 
