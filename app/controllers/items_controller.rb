@@ -16,7 +16,6 @@ class ItemsController < ApplicationController
     @large_image_url = @item.large_image
     @have_users = @item.have_users
     @want_users = @item.want_users
-    @user = User.find(params[:id])
   end
 
   private
