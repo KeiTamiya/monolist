@@ -11,8 +11,8 @@
   <%= csrf_meta_tags %>
   <%= favicon_link_tag 'favicon.ico' %>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
-  <% if :extend_menu.present? %>
-    <%= content_for?(:extend_menu) %>
+  <% if content_for?(:meta_tags) %>
+    <%= yield :meta_tags %>
   <% else %>
     <meta name="description" content="モノリスト。欲しいモノ、持ってるモノを表示しています。">
     <meta name="keywords" content="amazonアイテム, 持っている人, 欲しい人">
